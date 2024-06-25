@@ -29,7 +29,7 @@ jobs:
         # architecture: x86 # optional
 
     - name: Check go version
-      run: go --version
+      run: go version
 
     - name: Install nginx from docker hub
       uses: docker://nginx:1.27.0
