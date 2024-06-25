@@ -36,10 +36,10 @@ jobs:
     # - name: Super-Linter
     #   uses: super-linter/super-linter@v6.6.0
 
-    - run: mkdir -p /home/ubuntu/artifact
-    - run: echo action vs reaction > /home/ubuntu/artifact/action.txt
+    - run: sudo mkdir -p /home/ubuntu/artifact
+    - run: sudo echo action vs reaction > /home/ubuntu/artifact/action.txt
     - uses: actions/upload-artifact@v4
       with:
         name: artifact1
         path: /home/ubuntu/artifact/action.txt
-    - run: cat /home/ubuntu/artifact/action.txt
+    - run: sudo cat /home/ubuntu/artifact/action.txt
