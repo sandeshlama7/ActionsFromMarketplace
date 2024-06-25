@@ -48,8 +48,12 @@ jobs:
     - uses: actions/download-artifact@v4
       with:
         name: artifact1
+        path: /home/ubuntu
 
-    - run: |
-          pwd
-          ls -l
-      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Check npm version
+      run: npm --version
