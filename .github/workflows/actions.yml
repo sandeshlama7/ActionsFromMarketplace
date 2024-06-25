@@ -31,24 +31,27 @@ jobs:
     - name: Check go version
       run: go version
 
-    # - name: Pull nginx image from docker hub
-    #   uses: docker://nginx:1.27.0
-    # - name: Super-Linter
-    #   uses: super-linter/super-linter@v6.6.0
+    - name: Create a file with some text
+      run: |
+         sudo mkdir -p /home/ubuntu/artifact
+         sudo echo action vs reaction > /home/ubuntu/artifact/action.txt
 
-    - run: sudo mkdir -p /home/ubuntu/artifact
-    - run: sudo echo action vs reaction > /home/ubuntu/artifact/action.txt
-    - uses: actions/upload-artifact@v4
+    - name: Upload the file as artifact
+      uses: actions/upload-artifact@v4
       with:
         name: artifact1
         path: /home/ubuntu/artifact/action.txt
 
-    - run: sudo cat /home/ubuntu/artifact/action.txt
-
-    - uses: actions/download-artifact@v4
+    - name: Download the artifact created above into /home/ubuntu
+      uses: actions/download-artifact@v4
       with:
         name: artifact1
         path: /home/ubuntu
+
+    - name: Check the downloaded artifact
+      run: |
+          ls /home/ubuntu
+          cat /home/ubuntu/action.txt
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
