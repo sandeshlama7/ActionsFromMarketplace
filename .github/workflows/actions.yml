@@ -43,3 +43,6 @@ jobs:
         name: artifact1
         path: /home/ubuntu/artifact/action.txt
     - run: sudo cat /home/ubuntu/artifact/action.txt
+    - uses: actions/download-artifact@v4
+      with:
+        name: artifact1
