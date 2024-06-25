@@ -28,9 +28,8 @@ jobs:
         # Target architecture for Go to use. Examples: x86, x64. Will use system architecture by default.
         # architecture: x86 # optional
 
-     - name: Check go version
-       run: go --version
+    - name: Check go version
+      run: go --version
 
-     - name: Install nginx from docker hub
-       uses: docker://nginx:1.27.0
-
+    - name: Install nginx from docker hub
+      uses: docker://nginx:1.27.0
